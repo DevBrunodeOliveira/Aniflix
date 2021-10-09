@@ -16,15 +16,16 @@ var nomeAnimes = [
   "Genjitsu Shugi Yuusha no Oukoku Saikenki",
   "Kobayashi-san Chi no Maid Dragon S",
   "Tensei shitara Slime Datta Ken 2nd Season Part 2",
-  "Vanitas no Karte","Kanojo mo Kanojo",
-  "Seirei Gensouki","Jahy-sama wa Kujikenai!",
+  "Vanitas no Karte", "Kanojo mo Kanojo",
+  "Seirei Gensouki", "Jahy-sama wa Kujikenai!",
   "Tantei wa Mou, Shindeiru.",
   "Deatte 5-byou de Battle"
 ];
 var x = animes.indexOf(link);
+var popUp = document.getElementById("addContent");
 
 for (var i = 0; i < animes.length; i++) {
-  lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] +"</p></div>";
+  lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] + "</p></div>";
 }
 
 function adicionar() {
@@ -35,7 +36,7 @@ function adicionar() {
     animes.push(link);
     nomeAnimes.push(nome);
     for (i; i < animes.length; i++) {
-      lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] +"</p></div>";
+      lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] + "</p></div>";
       document.getElementById("repetido").innerHTML = "";
     }
   } else {
@@ -43,6 +44,7 @@ function adicionar() {
   }
   document.getElementById("url").value = "";
   document.getElementById("nome").value = "";
+  popUp.style.display = "block";
 }
 
 function remover() {
@@ -59,4 +61,10 @@ function remover() {
   }
   document.getElementById("url").value = "";
   document.getElementById("nome").value = "";
+}
+
+window.onclick = function (event) {
+  if (event.target == popUp) {
+    popUp.style.display = "none";
+  }
 }
