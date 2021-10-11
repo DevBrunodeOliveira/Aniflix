@@ -23,6 +23,7 @@ var nomeAnimes = [
 ];
 var x = animes.indexOf(link);
 var popUp = document.getElementById("addContent");
+var addContentCloser = document.getElementsByClassName("close")[0]
 
 for (var i = 0; i < animes.length; i++) {
   lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] + "</p></div>";
@@ -67,4 +68,7 @@ window.onclick = function (event) {
   if (event.target == popUp) {
     popUp.style.display = "none";
   }
+}
+addContentCloser.onclick = function () {
+  popUp.style.display = "none";
 }
