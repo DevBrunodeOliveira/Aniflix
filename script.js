@@ -1,6 +1,6 @@
 var lista = document.getElementById("listaAnimes");
 var nome = document.getElementById("nome").value;
-var link = document.getElementById("url").value;
+var link = document.getElementById("urlAdd").value;
 var animes = [
   "https://cdn.myanimelist.net/images/anime/1240/118272.jpg",
   "https://cdn.myanimelist.net/images/anime/1252/115539.jpg",
@@ -29,8 +29,12 @@ for (var i = 0; i < animes.length; i++) {
   lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] + "</p></div>";
 }
 
+function addOpen(){
+  popUp.style.display = "block";
+}
+
 function adicionar() {
-  link = document.getElementById("url").value;
+  link = document.getElementById("urlAdd").value;
   nome = document.getElementById("nome").value;
   x = animes.indexOf(link);
   if (x < 0 && link != "") {
@@ -44,8 +48,8 @@ function adicionar() {
     document.getElementById("repetido").innerHTML = "Titulo Ja Adicionado";
   }
   document.getElementById("url").value = "";
+  document.getElementById("urlAdd").value = "";
   document.getElementById("nome").value = "";
-  popUp.style.display = "block";
 }
 
 function remover() {
@@ -61,14 +65,19 @@ function remover() {
     i--
   }
   document.getElementById("url").value = "";
+  document.getElementById("urlAdd").value = "";
   document.getElementById("nome").value = "";
 }
 
 window.onclick = function (event) {
   if (event.target == popUp) {
     popUp.style.display = "none";
+    document.getElementById("urlAdd").value = "";
+    document.getElementById("nome").value = "";
   }
 }
 addContentCloser.onclick = function () {
   popUp.style.display = "none";
+  document.getElementById("urlAdd").value = "";
+  document.getElementById("nome").value = "";
 }
