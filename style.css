@@ -55,7 +55,28 @@ body {
 
 #addBox input{
   padding: 10px 15px;
+  border: none;
+  color: white;
+  background-color: rgb(39, 39, 39);
 }
+
+#addBox button {
+  border: 0;
+  color: #ffffff;
+  background: #da1e26;
+  font-weight: bold;
+  padding: 9px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#addBox button:hover {
+  opacity: 0.8;
+}
+
 .close {
   color: #aaa;
   float: right;
@@ -99,7 +120,12 @@ body {
 .form-wrapper input {
   display: block;
   margin: 5px auto;
-  padding: 10px 15px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 35px;
+  color: white;
+  background-color: black;
 }
 
 .form-wrapper button {
@@ -110,7 +136,7 @@ body {
   padding: 15px 20px;
   font-size: 16px;
   border-radius: 4px;
-  margin-top: 20px;
+  margin-top: 10px;
   cursor: pointer;
   transition: 0.3s;
 }
