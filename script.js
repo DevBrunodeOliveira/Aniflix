@@ -1,16 +1,24 @@
 var lista = document.getElementById("listaAnimes");
 var nome = document.getElementById("nome").value;
 var link = document.getElementById("urlAdd").value;
-var animes = [
-  "https://cdn.myanimelist.net/images/anime/1240/118272.jpg",
-  "https://cdn.myanimelist.net/images/anime/1252/115539.jpg",
-  "https://cdn.myanimelist.net/images/anime/1741/117622.jpg",
-  "https://cdn.myanimelist.net/images/anime/1811/115541.jpg",
-  "https://cdn.myanimelist.net/images/anime/1713/117119.jpg",
-  "https://cdn.myanimelist.net/images/anime/1453/116276.jpg",
-  "https://cdn.myanimelist.net/images/anime/1154/115599.jpg",
-  "https://cdn.myanimelist.net/images/anime/1843/115815.jpg",
-  "https://cdn.myanimelist.net/images/anime/1145/115565.jpg"
+var animes = [ { nome: "Genjitsu Shugi Yuusha no Oukoku Saikenki",
+    img: "https://cdn.myanimelist.net/images/anime/1240/118272.jpg"}, 
+    { nome: "Kobayashi-san Chi no Maid Dragon S",
+    img: "https://cdn.myanimelist.net/images/anime/1252/115539.jpg"},
+    {nome: "Tensei shitara Slime Datta Ken 2nd Season Part 2",
+    img: "https://cdn.myanimelist.net/images/anime/1741/117622.jpg"},
+    {nome: "Vanitas no Karte",
+    img:"https://cdn.myanimelist.net/images/anime/1811/115541.jpg" },
+    {nome: "Kanojo mo Kanojo",
+    img: "https://cdn.myanimelist.net/images/anime/1713/117119.jpg"},
+    {nome: "Seirei Gensouki", 
+    img: "https://cdn.myanimelist.net/images/anime/1453/116276.jpg"},
+    {nome: "Jahy-sama wa Kujikenai!", 
+    img: "https://cdn.myanimelist.net/images/anime/1154/115599.jpg"},
+    {nome: "Tantei wa Mou, Shindeiru.", 
+    img: "https://cdn.myanimelist.net/images/anime/1843/115815.jpg"},
+    {nome: "Deatte 5-byou de Battle", 
+    img: "https://cdn.myanimelist.net/images/anime/1145/115565.jpg"}
 ];
 var nomeAnimes = [
   "Genjitsu Shugi Yuusha no Oukoku Saikenki",
@@ -26,7 +34,7 @@ var popUp = document.getElementById("addContent");
 var addContentCloser = document.getElementsByClassName("close")[0]
 
 for (var i = 0; i < animes.length; i++) {
-  lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] + "</p></div>";
+  lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
 }
 
 function addOpen(){
@@ -38,10 +46,10 @@ function adicionar() {
   nome = document.getElementById("nome").value;
   x = animes.indexOf(link);
   if (x < 0 && link != "") {
-    animes.push(link);
+    animes.push({nome: nome, img: link});
     nomeAnimes.push(nome);
     for (i; i < animes.length; i++) {
-      lista.innerHTML += "<div><img src=" + animes[i] + ">" + "<p>" + nomeAnimes[i] + "</p></div>";
+      lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
       document.getElementById("repetido").innerHTML = "";
     }
   } else {
@@ -54,7 +62,8 @@ function adicionar() {
 
 function remover() {
   link = document.getElementById("url").value;
-  x = animes.indexOf(link);
+  x = animes.indexOf(link)
+  console.log(x)
   if (x < 0 || link == "") {
     document.getElementById("repetido").innerHTML = "Titulo Não Encontrado!";
   } else {
