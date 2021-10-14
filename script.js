@@ -62,7 +62,7 @@ function adicionar() {
 
 function remover() {
   link = document.getElementById("url").value;
-  x = animes.indexOf(link)
+  x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0])
   console.log(x)
   if (x < 0 || link == "") {
     document.getElementById("repetido").innerHTML = "Titulo Não Encontrado!";
