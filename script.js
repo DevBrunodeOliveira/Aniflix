@@ -31,7 +31,7 @@ var nomeAnimes = [
 ];
 var x = animes.indexOf(link);
 var popUp = document.getElementById("addContent");
-var addContentCloser = document.getElementsByClassName("close")[0]
+var addContentCloser = document.getElementsByClassName("close")[0];
 
 for (var i = 0; i < animes.length; i++) {
   lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
@@ -44,7 +44,7 @@ function addOpen(){
 function adicionar() {
   link = document.getElementById("urlAdd").value;
   nome = document.getElementById("nome").value;
-  x = animes.indexOf(link);
+  x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
   if (x < 0 && link != "") {
     animes.push({nome: nome, img: link});
     nomeAnimes.push(nome);
@@ -62,7 +62,7 @@ function adicionar() {
 
 function remover() {
   link = document.getElementById("url").value;
-  x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0])
+  x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
   console.log(x)
   if (x < 0 || link == "") {
     document.getElementById("repetido").innerHTML = "Titulo Não Encontrado!";
