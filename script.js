@@ -44,6 +44,9 @@ function addOpen(){
 var busca = document.getElementById('searchBar')
 busca.addEventListener('keyup', (e) => {
   console.log(e.target.value)
+  console.log(animes.map((test) => {
+    return `t ${test.nome} e ${test.img}`
+  }))
 })
 
 function adicionar() {
