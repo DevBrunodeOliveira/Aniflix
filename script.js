@@ -2,7 +2,7 @@ var lista = document.getElementById("listaAnimes");
 var nome = document.getElementById("nome").value;
 var link = document.getElementById("urlAdd").value;
 var animes = [ { nome: "Genjitsu Shugi Yuusha no Oukoku Saikenki",
-    img: "https://cdn.myanimelist.net/images/anime/1240/118272.jpg"}, 
+    img: "https://cdn.myanimelist.net/images/anime/1297/118764.jpg"}, 
     { nome: "Kobayashi-san Chi no Maid Dragon S",
     img: "https://cdn.myanimelist.net/images/anime/1252/115539.jpg"},
     {nome: "Tensei shitara Slime Datta Ken 2nd Season Part 2",
@@ -41,6 +41,11 @@ function addOpen(){
   popUp.style.display = "block";
 }
 
+var busca = document.getElementById('searchBar')
+busca.addEventListener('keyup', (e) => {
+  console.log(e.target.value)
+})
+
 function adicionar() {
   link = document.getElementById("urlAdd").value;
   nome = document.getElementById("nome").value;
@@ -55,13 +60,13 @@ function adicionar() {
   } else {
     document.getElementById("repetido").innerHTML = "Titulo Ja Adicionado";
   }
-  document.getElementById("url").value = "";
+  document.getElementById("searchBar").value = "";
   document.getElementById("urlAdd").value = "";
   document.getElementById("nome").value = "";
 }
 
 function remover() {
-  link = document.getElementById("url").value;
+  link = document.getElementById("searchBar").value;
   x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
   console.log(x)
   if (x < 0 || link == "") {
@@ -73,7 +78,7 @@ function remover() {
     nomeAnimes.splice(x, 1)
     i--
   }
-  document.getElementById("url").value = "";
+  document.getElementById("searchBar").value = "";
   document.getElementById("urlAdd").value = "";
   document.getElementById("nome").value = "";
 }
