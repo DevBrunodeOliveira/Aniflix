@@ -41,7 +41,7 @@ function addOpen(){
   popUp.style.display = "block";
 }
 
-var busca = document.getElementById('searchBar')
+const busca = document.getElementById('searchBar')
 busca.addEventListener('keyup', (e) => {
   console.log(e.target.value)
   console.log(animes.map((test) => {
