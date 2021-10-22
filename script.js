@@ -49,6 +49,10 @@ busca.addEventListener('keyup', (e) => {
   }))
 })
 
+function buscaElemento(elemento){
+lista.innerHTML = elemento
+}
+
 function adicionar() {
   link = document.getElementById("urlAdd").value;
   nome = document.getElementById("nome").value;
