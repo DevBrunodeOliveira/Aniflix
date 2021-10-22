@@ -43,10 +43,14 @@ function addOpen(){
 
 const busca = document.getElementById('searchBar')
 busca.addEventListener('keyup', (e) => {
-  console.log(e.target.value)
-  console.log(animes.map((test) => {
-    return `t ${test.nome} e ${test.img}`
-  }))
+  const buscando = e.target.value.toLowerCase()
+  let busca = animes.filter(((buscar) =>  buscar.nome.toLowerCase().includes(buscando)))
+  console.log(busca)
+  let t = busca.map((test) => {
+    return `<div><img src="${test.img}"><p>${test.nome}</p></div>`
+  }).join("");
+  console.log(t)
+  buscaElemento(t)
 })
 
 function buscaElemento(elemento){
