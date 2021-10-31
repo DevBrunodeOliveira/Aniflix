@@ -18,15 +18,15 @@ busca.addEventListener('keyup', (e) => {
   const buscando = e.target.value.toLowerCase()
   let busca = animes.filter(((buscar) =>  buscar.nome.toLowerCase().includes(buscando)))
   console.log(busca)
-  let t = busca.map((test) => {
-    return `<div><img src="${test.img}"><p>${test.nome}</p></div>`
-  }).join("");
-  console.log(t)
-  buscaElemento(t)
+  exibirElementos(busca)
 })
 
-function buscaElemento(elemento){
-lista.innerHTML = elemento
+function exibirElementos(lista){
+let t = lista.map((elemento) => {
+  return `<div><img src="${elemento.img}"><p>${elemento.nome}</p></div>`
+}).join("");
+lista.innerHTML = t
+console.log(t)
 }
 
 function adicionar() {
