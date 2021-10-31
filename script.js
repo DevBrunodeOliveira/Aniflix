@@ -21,8 +21,8 @@ busca.addEventListener('keyup', (e) => {
   exibirElementos(busca)
 })
 
-function exibirElementos(lista){
-let t = lista.map((elemento) => {
+function exibirElementos(conjunto){
+let t = conjunto.map((elemento) => {
   return `<div><img src="${elemento.img}"><p>${elemento.nome}</p></div>`
 }).join("");
 lista.innerHTML = t
@@ -59,6 +59,7 @@ function remover() {
     lista.removeChild(lista.childNodes[0]);
     animes.splice(x, 1);
     nomeAnimes.splice(x, 1)
+    exibirElementos(animes)
     i--
   }
   document.getElementById("searchBar").value = "";
