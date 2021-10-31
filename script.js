@@ -50,13 +50,13 @@ function adicionar() {
 
 function remover() {
   link = document.getElementById("searchBar").value;
-  x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
+  x = animes.indexOf(animes.filter(((anime) =>  anime.nome == link))[0]);
   console.log(x)
   if (x < 0 || link == "") {
     document.getElementById("repetido").innerHTML = "Titulo Não Encontrado!";
   } else {
     document.getElementById("repetido").innerHTML = "Titulo Removido!";
-    lista.removeChild(lista.childNodes[x]);
+    lista.removeChild(lista.childNodes[0]);
     animes.splice(x, 1);
     nomeAnimes.splice(x, 1)
     i--
