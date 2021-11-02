@@ -1,9 +1,13 @@
-animes.sort(function(a,b){ if(a.nome > b.nome){
-  return 1;
-} if(a.nome < b.nome){
-  return -1;
-} return 0;
-})
+function ordenar(conjunto){
+  conjunto.sort(function(a,b){ if(a.nome > b.nome){
+    return 1;
+  } if(a.nome < b.nome){
+    return -1;
+  } return 0;
+  })
+  return conjunto}
+
+ordenar(animes)
 
 for (var i = 0; i < animes.length; i++) {
   lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
