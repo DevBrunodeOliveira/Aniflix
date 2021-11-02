@@ -21,7 +21,6 @@ const busca = document.getElementById('searchBar')
 busca.addEventListener('keyup', (e) => {
   const buscando = e.target.value.toLowerCase()
   let busca = animes.filter(((buscar) =>  buscar.nome.toLowerCase().includes(buscando)))
-  console.log(busca)
   exibirElementos(busca)
 })
 
@@ -30,7 +29,6 @@ let t = conjunto.map((elemento) => {
   return `<div><img src="${elemento.img}"><p>${elemento.nome}</p></div>`
 }).join("");
 lista.innerHTML = t
-console.log(t)
 }
 
 function adicionar() {
