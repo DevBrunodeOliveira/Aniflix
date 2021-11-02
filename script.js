@@ -37,7 +37,6 @@ function adicionar() {
   x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
   if (x < 0 && link != "") {
     animes.push({nome: nome, img: link});
-    nomeAnimes.push(nome);
     for (i; i < animes.length; i++) {
       lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
       document.getElementById("repetido").innerHTML = "";
@@ -60,7 +59,6 @@ function remover() {
     document.getElementById("repetido").innerHTML = "Titulo Removido!";
     lista.removeChild(lista.childNodes[0]);
     animes.splice(x, 1);
-    nomeAnimes.splice(x, 1)
     exibirElementos(animes)
     i--
   }
