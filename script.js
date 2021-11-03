@@ -37,10 +37,12 @@ function adicionar() {
   x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
   if (x < 0 && link != "") {
     animes.push({nome: nome, img: link});
-    for (i; i < animes.length; i++) {
-      lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
-      document.getElementById("repetido").innerHTML = "";
-    }
+    ordenar(animes)
+    x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
+    let novoElemento = document.createElement("div")
+    novoElemento.innerHTML = `<img src="${animes[x].img}"><p>${animes[x].nome}</p>`
+    lista.insertBefore(novoElemento, lista.childNodes[x])
+    document.getElementById("repetido").innerHTML = "";
   } else {
     document.getElementById("repetido").innerHTML = "Titulo Ja Adicionado";
   }
@@ -60,7 +62,6 @@ function remover() {
     lista.removeChild(lista.childNodes[0]);
     animes.splice(x, 1);
     exibirElementos(animes)
-    i--
   }
   document.getElementById("searchBar").value = "";
   document.getElementById("urlAdd").value = "";
