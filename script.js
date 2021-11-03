@@ -1,7 +1,7 @@
 function ordenar(conjunto){
-  conjunto.sort(function(a,b){ if(a.nome > b.nome){
+  conjunto.sort(function(a,b){ if(a.nome.toLowerCase() > b.nome.toLowerCase()){
     return 1;
-  } if(a.nome < b.nome){
+  } if(a.nome.toLowerCase() < b.nome.toLowerCase()){
     return -1;
   } return 0;
   })
