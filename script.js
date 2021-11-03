@@ -8,10 +8,7 @@ function ordenar(conjunto){
   return conjunto}
 
 ordenar(animes)
-
-for (var i = 0; i < animes.length; i++) {
-  lista.innerHTML += "<div><img src=" + animes[i].img + ">" + "<p>" + animes[i].nome + "</p></div>";
-}
+exibirElementos(animes)
 
 function addOpen(){
   popUp.style.display = "block";
@@ -25,10 +22,10 @@ busca.addEventListener('keyup', (e) => {
 })
 
 function exibirElementos(conjunto){
-let t = conjunto.map((elemento) => {
+let elementos = conjunto.map((elemento) => {
   return `<div><img src="${elemento.img}"><p>${elemento.nome}</p></div>`
 }).join("");
-lista.innerHTML = t
+lista.innerHTML = elementos
 }
 
 function adicionar() {
