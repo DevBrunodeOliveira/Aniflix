@@ -30,12 +30,23 @@
     </div>
   </div>
   <div id="addContent" class="popUp">
-    <div id="addBox">
-      <span class="close">&times;</span>
-      <h2>incoming...</h2>
-      <input type="text" id="nome" name="nome" placeholder="Insira o Nome do Anime">
-      <input type="text" id="urlAdd" name="anime" placeholder="Insira endereço de imagem">
-      <button onClick="adicionar()">Adicionar</button>
+    <div id="contentBox">
+      <span class="close" onclick="fecharPopUp()">&times;</span>
+      <div id="addBox">
+        <h2>incoming...</h2>
+        <input type="text" id="nome" name="nome" placeholder="Insira o Nome do Anime">
+        <input type="text" id="urlAdd" name="anime" placeholder="Insira endereço de imagem">
+        <button onClick="adicionar()">Adicionar</button>
+      </div>
+      <div id="infoContent">
+        <img src="https://cdn.myanimelist.net/images/anime/1449/117797.jpg">
+        <div id="infoBox" >
+          <h2>titulo</h2>
+          <p>Descrição</p>
+          <p>Generos</p>
+          <p>Temps, ovas, filmes</p>
+        </div>
+      </div>
     </div>
   </div>
   <div id="listaAnimes"></div>
