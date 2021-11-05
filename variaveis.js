@@ -40,4 +40,5 @@ var nome = document.getElementById("nome").value;
 var link = document.getElementById("urlAdd").value;
 var x = animes.indexOf(link);
 var popUp = document.getElementById("addContent");
-var addContentCloser = document.getElementsByClassName("close")[0];
+const infoBox = document.getElementById("infoContent")
+const addBox = document.getElementById("addBox")
