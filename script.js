@@ -12,6 +12,13 @@ exibirElementos(animes)
 
 function addOpen(){
   popUp.style.display = "block";
+  addBox.style.display = "block";
+}
+
+function showInfoBox(){
+  popUp.style.display = "block";
+  infoBox.style.display = "flex";
+  addBox.style.display = "none";
 }
 
 const busca = document.getElementById('searchBar')
@@ -23,7 +30,7 @@ busca.addEventListener('keyup', (e) => {
 
 function exibirElementos(conjunto){
 let elementos = conjunto.map((elemento) => {
-  return `<div><img src="${elemento.img}"><p>${elemento.nome}</p></div>`
+  return `<div><img src="${elemento.img}" onClick="showInfoBox()"><p>${elemento.nome}</p></div>`
 }).join("");
 lista.innerHTML = elementos
 }
@@ -37,7 +44,7 @@ function adicionar() {
     ordenar(animes)
     x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
     let novoElemento = document.createElement("div")
-    novoElemento.innerHTML = `<img src="${animes[x].img}"><p>${animes[x].nome}</p>`
+    novoElemento.innerHTML = `<img src="${animes[x].img} onClick="showInfoBox()"><p>${animes[x].nome}</p>`
     lista.insertBefore(novoElemento, lista.childNodes[x])
     document.getElementById("repetido").innerHTML = "";
   } else {
@@ -68,12 +75,14 @@ function remover() {
 window.onclick = function (event) {
   if (event.target == popUp) {
     popUp.style.display = "none";
+    infoBox.style.display = "none";
     document.getElementById("urlAdd").value = "";
     document.getElementById("nome").value = "";
   }
 }
-addContentCloser.onclick = function () {
+function fecharPopUp() {
   popUp.style.display = "none";
+  infoBox.style.display = "none";
   document.getElementById("urlAdd").value = "";
   document.getElementById("nome").value = "";
 }
