@@ -84,8 +84,21 @@ body {
   background-color: #000000;
 }
 
+#infoContent img {
+  max-height: 300px;
+}
+
 #infoBox {
   margin-left: 20px;
+}
+
+#titulo{
+  margin-top: 0;
+  text-align: left;
+}
+
+#descricao{
+  text-align: justify;
 }
 
 .close {
@@ -116,6 +129,7 @@ body {
 #listaAnimes img {
   margin: 10px;
   max-height: 250px;
+  cursor: pointer;
 }
 
 #listaAnimes p {
