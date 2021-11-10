@@ -15,7 +15,9 @@ function addOpen(){
   addBox.style.display = "block";
 }
 
-function showInfoBox(){
+function showInfoBox(img, titulo){
+  document.getElementById("infoImg").src = img;
+  document.getElementById("titulo").innerHTML = titulo;
   popUp.style.display = "block";
   infoBox.style.display = "flex";
   addBox.style.display = "none";
@@ -30,7 +32,7 @@ busca.addEventListener('keyup', (e) => {
 
 function exibirElementos(conjunto){
 let elementos = conjunto.map((elemento) => {
-  return `<div><img src="${elemento.img}" onClick="showInfoBox()"><p>${elemento.nome}</p></div>`
+  return `<div><img src="${elemento.img}" onClick="showInfoBox('${elemento.img}','${elemento.nome}')"><p>${elemento.nome}</p></div>`
 }).join("");
 lista.innerHTML = elementos
 }
@@ -44,7 +46,7 @@ function adicionar() {
     ordenar(animes)
     x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
     let novoElemento = document.createElement("div")
-    novoElemento.innerHTML = `<img src="${animes[x].img} onClick="showInfoBox()"><p>${animes[x].nome}</p>`
+    novoElemento.innerHTML = `<img src="${animes[x].img} onClick="showInfoBox('${animes[x].img}','${animes[x].nome}')"><p>${animes[x].nome}</p>`
     lista.insertBefore(novoElemento, lista.childNodes[x])
     document.getElementById("repetido").innerHTML = "";
   } else {
