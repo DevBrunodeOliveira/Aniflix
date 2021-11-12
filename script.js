@@ -46,7 +46,7 @@ function adicionar() {
     ordenar(animes)
     x = animes.indexOf(animes.filter(((anime) =>  anime.img == link))[0]);
     let novoElemento = document.createElement("div")
-    novoElemento.innerHTML = `<img src="${animes[x].img} onClick="showInfoBox('${animes[x].img}','${animes[x].nome}')"><p>${animes[x].nome}</p>`
+    novoElemento.innerHTML = `<img src="${animes[x].img}" onClick="showInfoBox('${animes[x].nome}')"><p>${animes[x].nome}</p>`
     lista.insertBefore(novoElemento, lista.childNodes[x])
     document.getElementById("repetido").innerHTML = "";
   } else {
@@ -82,6 +82,7 @@ window.onclick = function (event) {
     document.getElementById("nome").value = "";
   }
 }
+
 function fecharPopUp() {
   popUp.style.display = "none";
   infoBox.style.display = "none";
