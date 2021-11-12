@@ -15,9 +15,10 @@ function addOpen(){
   addBox.style.display = "block";
 }
 
-function showInfoBox(img, titulo){
-  document.getElementById("infoImg").src = img;
-  document.getElementById("titulo").innerHTML = titulo;
+function showInfoBox(item){
+  x = animes.indexOf(animes.filter(((anime) =>  anime.nome == item))[0])
+  document.getElementById("infoImg").src = animes[x].img;
+  document.getElementById("titulo").innerHTML = animes[x].nome;
   popUp.style.display = "block";
   infoBox.style.display = "flex";
   addBox.style.display = "none";
@@ -32,7 +33,7 @@ busca.addEventListener('keyup', (e) => {
 
 function exibirElementos(conjunto){
 let elementos = conjunto.map((elemento) => {
-  return `<div><img src="${elemento.img}" onClick="showInfoBox('${elemento.img}','${elemento.nome}')"><p>${elemento.nome}</p></div>`
+  return `<div><img src="${elemento.img}" onClick="showInfoBox('${elemento.nome}')"><p>${elemento.nome}</p></div>`
 }).join("");
 lista.innerHTML = elementos
 }
